@@ -18,6 +18,8 @@
     <p class="lead">Calcula el total con descuento e IVA, cuánto hay que devolver y con qué billetes y monedas darlo.</p>
   </header>
 
+  <div class="layout">
+
   <form class="card" id="form" novalidate>
     <h2 class="card-title">Importe</h2>
 
@@ -71,12 +73,14 @@
       <span id="change-label">Cambio a devolver</span>
       <span class="amount" id="out-change">0,00 €</span>
     </div>
-
-    <div id="breakdown-wrap" hidden>
-      <h2 class="card-title">Cómo darlo</h2>
-      <ul class="breakdown" id="breakdown"></ul>
-    </div>
   </section>
+
+  <section class="card card--result card--breakdown" id="breakdown-wrap" aria-live="polite" hidden>
+    <h2 class="card-title">Cómo darlo</h2>
+    <ul class="breakdown" id="breakdown"></ul>
+  </section>
+
+  </div>
 
   <footer class="app-foot">
     <p>Hecho con HTML, CSS y JavaScript, sin librerías.

@@ -33,6 +33,23 @@ body {
   margin: 0 auto;
 }
 
+/* En pantalla ancha se reparte en columnas para no perder de vista los importes
+   mientras se teclea. En movil cae a una sola columna. */
+@media (min-width: 780px) {
+  .app { max-width: 900px; }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1120px) {
+  .app { max-width: 1200px; }
+  .layout { grid-template-columns: 1.05fr 1fr 0.9fr; }
+}
+
 .app-head { margin-bottom: 22px; }
 
 .app-head h1 {
@@ -143,12 +160,7 @@ select:focus-visible {
   text-shadow: 0 0 14px rgba(255, 107, 74, 0.35);
 }
 
-#breakdown-wrap .card-title {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px dashed #3a3220;
-  color: var(--lcd-dim);
-}
+.card--breakdown .card-title { color: var(--lcd-dim); }
 
 .breakdown {
   list-style: none;
