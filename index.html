@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de caja</title>
+<meta name="description" content="Calculadora de caja: aplica descuento e IVA, calcula el cambio a devolver y lo desglosa en billetes y monedas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<main class="app">
+  <header class="app-head">
+    <h1>Calculadora de caja</h1>
+    <p class="lead">Calcula el total con descuento e IVA, cuánto hay que devolver y con qué billetes y monedas darlo.</p>
+  </header>
+
+  <form class="card" id="form" novalidate>
+    <h2 class="card-title">Importe</h2>
+
+    <div class="field">
+      <label for="subtotal">Subtotal sin IVA (€)</label>
+      <input type="number" id="subtotal" min="0" step="0.01" value="0" inputmode="decimal">
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="discount">Descuento (%)</label>
+        <input type="number" id="discount" min="0" max="100" step="1" value="0" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="vat">IVA</label>
+        <select id="vat">
+          <option value="21" selected>21% general</option>
+          <option value="10">10% reducido</option>
+          <option value="4">4% superreducido</option>
+          <option value="0">Sin IVA</option>
+        </select>
+      </div>
+    </div>
+
+    <h2 class="card-title">Cobro</h2>
+
+    <div class="field">
+      <label for="paid">Entregado por el cliente (€)</label>
+      <input type="number" id="paid" min="0" step="0.01" value="0" inputmode="decimal">
+    </div>
+  </form>
+
+  <section class="card card--result" aria-live="polite">
+    <div class="line">
+      <span>Descuento aplicado</span>
+      <span class="amount" id="out-discount">0,00 €</span>
+    </div>
+    <div class="line">
+      <span>Base imponible</span>
+      <span class="amount" id="out-base">0,00 €</span>
+    </div>
+    <div class="line">
+      <span>IVA</span>
+      <span class="amount" id="out-vat">0,00 €</span>
+    </div>
+    <div class="line line--total">
+      <span>Total a cobrar</span>
+      <span class="amount" id="out-total">0,00 €</span>
+    </div>
+    <div class="line line--change">
+      <span id="change-label">Cambio a devolver</span>
+      <span class="amount" id="out-change">0,00 €</span>
+    </div>
+
+    <div id="breakdown-wrap" hidden>
+      <h2 class="card-title">Cómo darlo</h2>
+      <ul class="breakdown" id="breakdown"></ul>
+    </div>
+  </section>
+
+  <footer class="app-foot">
+    <p>Hecho con HTML, CSS y JavaScript, sin librerías.
+      <a href="https://github.com/claudia-ortegamartin/calculadora-caja" target="_blank" rel="noopener">Código en GitHub</a>.</p>
+  </footer>
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
